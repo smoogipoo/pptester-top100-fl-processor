@@ -10,6 +10,10 @@ namespace Top100Processor
 
         public static string ConnectionStringAltered { get; private set; }
 
+        public static int Count { get; private set; }
+
+        public static int Mods { get; private set; }
+
         static AppSettings()
         {
             var env = Environment.GetEnvironmentVariable("APP_ENV") ?? "development";
@@ -21,6 +25,9 @@ namespace Top100Processor
 
             ConnectionStringOriginal = config.GetConnectionString("original");
             ConnectionStringAltered = config.GetConnectionString("altered");
+
+            Count = int.Parse(config["count"]);
+            Mods = int.Parse(config["mods"]);
         }
     }
 }
