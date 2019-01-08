@@ -29,8 +29,8 @@ namespace Top100Processor
 
             foreach (var score in top)
             {
-                var origScore = originalData.SingleOrDefault(s => s.score_id == score.score_id);
-                var altScore = alteredData.SingleOrDefault(s => s.score_id == score.score_id);
+                var origScore = originalData.Single(s => s.score_id == score.score_id);
+                var altScore = alteredData.Single(s => s.score_id == score.score_id);
 
                 // Remove NC mod
                 var mods = ((Mods) (origScore.enabled_mods & ~512)).ToString();
